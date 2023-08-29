@@ -11,6 +11,10 @@
 
   // fetch the product
   const {data: product} = await useFetch(uri, { key: id})
+//error code
+if (!product.value){
+   throw createError ({ statusCode: 404, statusMessage: 'product not found', fatal:true})
+  }
 
  definePageMeta({
     layout: 'products'
